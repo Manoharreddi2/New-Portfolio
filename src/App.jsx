@@ -50,7 +50,8 @@ function App() {
     const elements = document.querySelectorAll('.section-animate, .skill-category, .project-card, .education-item');
     elements.forEach(el => observer.observe(el));
 
-    // Mouse glow effect
+    // Mouse glow effect — skip on touch/mobile devices for performance
+    const isMobile = window.matchMedia('(max-width: 768px)').matches || 'ontouchstart' in window;
     const glow = document.getElementById('glow');
     const handleMouseMove = (e) => {
       if (glow) {
@@ -58,7 +59,9 @@ function App() {
         glow.style.top = e.clientY - 250 + 'px';
       }
     };
-    document.addEventListener('mousemove', handleMouseMove);
+    if (!isMobile) {
+      document.addEventListener('mousemove', handleMouseMove);
+    }
 
     return () => {
       elements.forEach(el => observer.unobserve(el));
