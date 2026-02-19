@@ -1251,3 +1251,22 @@ footer p {
         margin-bottom: 10px;
     }
 }
+/* Sliding Reveal Animation Classes */
+.slide-active {
+    transform: translateY(0);
+    opacity: 1; /* Ensure visible */
+    z-index: 2;
+}
+
+.slide-exit {
+    transform: translateY(-100%);
+    opacity: 0; /* Optional: fade out as it goes up */
+    z-index: 1;
+}
+
+.slide-hidden {
+    transform: translateY(100%);
+    opacity: 0;
+    z-index: 0;
+}
+

@@ -9,16 +9,11 @@ const greetings = [
 
 const Hero = () => {
     const [index, setIndex] = useState(0);
-    const [fade, setFade] = useState(true); // Control fade-in/out
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setFade(false); // Start fading out
-            setTimeout(() => {
-                setIndex((prevIndex) => (prevIndex + 1) % greetings.length);
-                setFade(true); // Start fading in next greeting
-            }, 500); // Wait for half the transition time
-        }, 2500); // Total interval
+            setIndex((prevIndex) => (prevIndex + 1) % greetings.length);
+        }, 2000); // 2 seconds per greeting for better readability with slide
 
         return () => clearInterval(interval);
     }, []);
@@ -26,30 +21,34 @@ const Hero = () => {
     return (
         <header id="home" className="section-animate">
             <h1 className="hero-title">
-                {/* 
-                  To achieve "one fades away while other is coming", we need a bit more than just opacity toggle.
-                  But a smooth opacity transition on the same element works well if timed right.
-                  The user said "one should fade away while other is coming".
-                  This strictly requires absolute positioning of two elements.
-                  Let's stick to the single element fade-out-then-in for simplicity first, 
-                  as true overlap requires layout changes that might break flow.
-                  BUT, to honor the request, let's try a cross-fade container.
-                */}
-                <div style={{ position: 'relative', height: '1.2em', width: '100%', display: 'flex', justifyContent: 'center' }}>
-                    {greetings.map((greet, i) => (
-                        <span
-                            key={i}
-                            className={`name-first d-block absolute-greeting ${i === index ? 'fade-in' : 'fade-out'}`}
-                            style={{
-                                position: 'absolute',
-                                top: 0,
-                                opacity: i === index ? 1 : 0,
-                                transition: 'opacity 1s ease-in-out'
-                            }}
-                        >
-                            {greet}
-                        </span>
-                    ))}
+                {/* Sliding Reveal Container */}
+                <div style={{ position: 'relative', height: '1.2em', width: '100%', overflow: 'hidden', display: 'flex', justifyContent: 'center' }}>
+                    {greetings.map((greet, i) => {
+                        // Determine state: current, previous, next (or just hidden)
+                        let positionClass = 'slide-hidden';
+                        if (i === index) {
+                            positionClass = 'slide-active';
+                        } else if (i === (index - 1 + greetings.length) % greetings.length) {
+                            positionClass = 'slide-exit';
+                        }
+
+                        return (
+                            <span
+                                key={i}
+                                className={`name-first d-block absolute-greeting ${positionClass}`}
+                                style={{
+                                    position: 'absolute',
+                                    top: 0,
+                                    left: 0,
+                                    right: 0,
+                                    transition: 'transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.5s ease', // Bouncy slide
+                                    zIndex: i === index ? 2 : 1
+                                }}
+                            >
+                                {greet}
+                            </span>
+                        );
+                    })}
                 </div>
                 <span className="d-block name-first" style={{ marginTop: '10px' }}>I am <span className="wave-emoji">👋</span></span>
                 <span className="d-block"><span className="name-first">Purukutapu</span> <span className="name-last">Manohar</span></span>
