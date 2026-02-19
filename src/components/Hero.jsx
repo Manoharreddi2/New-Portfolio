@@ -21,37 +21,40 @@ const Hero = () => {
     return (
         <header id="home" className="section-animate">
             <h1 className="hero-title">
-                {/* Sliding Reveal Container */}
-                <div style={{ position: 'relative', height: '1.2em', width: '100%', overflow: 'hidden', display: 'flex', justifyContent: 'center' }}>
-                    {greetings.map((greet, i) => {
-                        // Determine state: current, previous, next (or just hidden)
-                        let positionClass = 'slide-hidden';
-                        if (i === index) {
-                            positionClass = 'slide-active';
-                        } else if (i === (index - 1 + greetings.length) % greetings.length) {
-                            positionClass = 'slide-exit';
-                        }
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', width: 'fit-content', margin: '0 auto' }}>
+                    {/* Sliding Reveal Container */}
+                    <div style={{ position: 'relative', height: '1.2em', width: '100%', overflow: 'hidden', display: 'flex', justifyContent: 'flex-start' }}>
+                        {greetings.map((greet, i) => {
+                            // Determine state: current, previous, next (or just hidden)
+                            let positionClass = 'slide-hidden';
+                            if (i === index) {
+                                positionClass = 'slide-active';
+                            } else if (i === (index - 1 + greetings.length) % greetings.length) {
+                                positionClass = 'slide-exit';
+                            }
 
-                        return (
-                            <span
-                                key={i}
-                                className={`name-first d-block absolute-greeting ${positionClass}`}
-                                style={{
-                                    position: 'absolute',
-                                    top: 0,
-                                    left: 0,
-                                    right: 0,
-                                    transition: 'transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 1.2s ease', // Slower transition (1.2s)
-                                    zIndex: i === index ? 2 : 1
-                                }}
-                            >
-                                {greet}
-                            </span>
-                        );
-                    })}
+                            return (
+                                <span
+                                    key={i}
+                                    className={`name-first d-block absolute-greeting ${positionClass}`}
+                                    style={{
+                                        position: 'absolute',
+                                        top: 0,
+                                        left: 0,
+                                        right: 0,
+                                        textAlign: 'left',
+                                        transition: 'transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 1.2s ease', // Slower transition (1.2s)
+                                        zIndex: i === index ? 2 : 1
+                                    }}
+                                >
+                                    {greet}
+                                </span>
+                            );
+                        })}
+                    </div>
+                    <span className="d-block name-first" style={{ marginTop: '10px', textAlign: 'left', width: '100%' }}>I am <span className="wave-emoji">👋</span></span>
+                    <span className="d-block" style={{ textAlign: 'left', width: '100%' }}><span className="name-first">Purukutapu</span> <span className="name-last">Manohar</span></span>
                 </div>
-                <span className="d-block name-first" style={{ marginTop: '10px' }}>I am <span className="wave-emoji">👋</span></span>
-                <span className="d-block"><span className="name-first">Purukutapu</span> <span className="name-last">Manohar</span></span>
             </h1>
             <div className="glassy-text">Web Developer | Problem Solver | Tech Enthusiast</div>
             <div className="contact-links">
