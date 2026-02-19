@@ -1280,8 +1280,8 @@ footer p {
     background-color: #ffffff;
     color: #000000;
     padding: 10px 20px;
-    border-radius: 55% 25% 45% 35% / 35% 55% 25% 45%;
-    /* Organic blob shape */
+    border-radius: 20px 225px 15px 255px / 255px 15px 225px 35px;
+    /* Rough, irregular paint patch shape */
     display: inline-flex;
     width: 380px;
     /* Fixed constant big width */
@@ -1291,8 +1291,8 @@ footer p {
     /* Center text vertically */
     transition: transform 0.5s ease-in-out;
     /* Only animate transform/shape, not size */
-    transform: rotate(-2deg);
-    /* Organic tilt */
+    transform: rotate(-1deg);
+    /* Slight organic tilt */
     white-space: nowrap;
 }
 
