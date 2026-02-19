@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+const greetings = [
+    'Hello', 'Namaste', 'Hola', 'Bonjour', 'Vanakkam',
+    'Namaskaram', 'Konnichiwa', 'Annyeonghaseyo', 'Ciao',
+    'Ni Hao', 'Privet', 'Assalamu Alaikum', 'Sat Sri Akal',
+    'Ola', 'Hallo'
+];
 
 const Hero = () => {
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIndex((prevIndex) => (prevIndex + 1) % greetings.length);
+        }, 300);
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <header id="home" className="section-animate">
             <div className="greeting">
-                Hello, I am <span className="wave-emoji">👋</span>
+                {greetings[index]}, I am <span className="wave-emoji">👋</span>
             </div>
 
             <h1><span className="name-first">Purukutapu</span> <span className="name-last">Manohar</span></h1>
