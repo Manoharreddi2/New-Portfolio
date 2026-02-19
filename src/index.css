@@ -1270,3 +1270,28 @@ footer p {
     z-index: 0;
 }
 
+
+/* Greeting Paint Background */
+.greeting-paint {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 0 10px;
+    border-radius: 4px; /* Slightly rounded corners for paint effect */
+    display: inline-block;
+    min-width: 150px; /* Ensure minimum width for different lengths */
+}
+
+/* Override text gradient for paint box content to ensure solid color */
+.greeting-paint .name-first {
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+    text-fill-color: initial !important;
+    color: inherit !important;
+}
+
+/* Light Mode Override */
+body.light-mode .greeting-paint {
+    background-color: #000000;
+    color: #ffffff;
+}
+

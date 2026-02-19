@@ -13,7 +13,7 @@ const Hero = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex((prevIndex) => (prevIndex + 1) % greetings.length);
-        }, 1800); // 2 seconds per greeting
+        }, 1800); // 1.8 seconds per greeting
 
         return () => clearInterval(interval);
     }, []);
@@ -23,7 +23,7 @@ const Hero = () => {
             <h1 className="hero-title">
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', width: 'fit-content', margin: '0 auto' }}>
                     {/* Sliding Reveal Container */}
-                    <div style={{ position: 'relative', height: '1.2em', width: '100%', overflow: 'hidden', display: 'flex', justifyContent: 'flex-start' }}>
+                    <div className="greeting-paint" style={{ position: 'relative', height: '1.4em', overflow: 'hidden', display: 'flex', justifyContent: 'flex-start', marginBottom: '10px' }}>
                         {greetings.map((greet, i) => {
                             // Determine state: current, previous, next (or just hidden)
                             let positionClass = 'slide-hidden';
