@@ -56,11 +56,13 @@ const Hero = () => {
                     <span className="d-block" style={{ textAlign: 'left', width: '100%' }}><span className="name-first">Purukutapu</span> <span className="name-last">Manohar</span></span>
                 </div>
             </h1>
-            <div className="glassy-text">Web Developer | Problem Solver | Tech Enthusiast</div>
-            <div className="contact-links">
-                <a href="mailto:manoharreddy2210@gmail.com">Email</a>
-                <a href="https://github.com/Manoharreddi2" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="https://www.linkedin.com/in/purukutapu-manohar-a40220254" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', width: 'fit-content', margin: '20px auto 0' }}>
+                <div className="glassy-text" style={{ margin: '0 0 20px 0', textAlign: 'left' }}>Web Developer | Problem Solver | Tech Enthusiast</div>
+                <div className="contact-links" style={{ justifyContent: 'flex-start', width: '100%' }}>
+                    <a href="mailto:manoharreddy2210@gmail.com">Email</a>
+                    <a href="https://github.com/Manoharreddi2" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/purukutapu-manohar-a40220254" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </div>
             </div>
         </header>
     );
