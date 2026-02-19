@@ -22,9 +22,8 @@ const Hero = () => {
         <header id="home" className="section-animate">
             <h1 className="hero-title">
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', width: 'fit-content', margin: '0 auto' }}>
-                    {/* Sliding Reveal Container with Paint Effect */}
-                    <div className="greeting-paint" style={{ position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
-
+                    {/* Sliding Reveal Container */}
+                    <div style={{ position: 'relative', height: '1.4em', width: '100%', overflow: 'hidden', display: 'flex', justifyContent: 'flex-start', marginBottom: '10px' }}>
                         {greetings.map((greet, i) => {
                             // Determine state: current, previous, next (or just hidden)
                             let positionClass = 'slide-hidden';
@@ -40,15 +39,12 @@ const Hero = () => {
                                     className={`name-first d-block absolute-greeting ${positionClass}`}
                                     style={{
                                         position: 'absolute',
-                                        top: '50%',
-                                        transform: i === index ? 'translateY(-50%)' : ((i === (index - 1 + greetings.length) % greetings.length) ? 'translateY(-150%)' : 'translateY(50%)'), // Center vertically
+                                        top: 0,
                                         left: 0,
                                         right: 0,
                                         textAlign: 'left',
-                                        paddingLeft: '15px', // Match CSS padding
                                         transition: 'transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 1.2s ease',
-                                        zIndex: i === index ? 2 : 1,
-                                        marginTop: 0 // Reset margin
+                                        zIndex: i === index ? 2 : 1
                                     }}
                                 >
                                     {greet}

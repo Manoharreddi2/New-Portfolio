@@ -1274,37 +1274,6 @@ footer p {
 }
 
 
-
-/* Greeting Paint Background */
-.greeting-paint {
-    background-color: #ffffff;
-    color: #000000;
-    padding: 10px 30px;
-    /* More padding for better breathing room */
-    border-radius: 45% 55% 70% 30% / 35% 60% 40% 65%;
-    /* Smoother organic blob shape */
-    display: inline-flex;
-    width: 500px;
-    /* Wider fixed size to fit longest greetings comfortably */
-    height: 2.2em;
-    /* Slightly taller for better proportions */
-    align-items: center;
-    /* Center text vertically */
-    transition: transform 0.5s ease-in-out;
-    /* Only animate transform/shape, not size */
-    transform: rotate(-1deg);
-    /* Slight organic tilt */
-    white-space: nowrap;
-}
-
-/* Override text gradient for paint box content to ensure solid color */
-.greeting-paint .name-first {
-    background: none !important;
-    -webkit-text-fill-color: initial !important;
-    text-fill-color: initial !important;
-    color: inherit !important;
-}
-
 /* Light Mode Override */
 body.light-mode .greeting-paint {
     background-color: #000000;
