@@ -13,7 +13,7 @@ const Hero = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex((prevIndex) => (prevIndex + 1) % greetings.length);
-        }, 300);
+        }, 1000);
 
         return () => clearInterval(interval);
     }, []);
@@ -21,7 +21,9 @@ const Hero = () => {
     return (
         <header id="home" className="section-animate">
             <div className="greeting">
-                {greetings[index]}, I am <span className="wave-emoji">👋</span>
+                <span key={index} className="fade-in-text">
+                    {greetings[index]}
+                </span>, I am <span className="wave-emoji">👋</span>
             </div>
 
             <h1><span className="name-first">Purukutapu</span> <span className="name-last">Manohar</span></h1>
