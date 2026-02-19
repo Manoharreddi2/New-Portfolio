@@ -1279,14 +1279,15 @@ footer p {
 .greeting-paint {
     background-color: #ffffff;
     color: #000000;
-    padding: 10px 20px;
-    border-radius: 20px 225px 15px 255px / 255px 15px 225px 35px;
-    /* Rough, irregular paint patch shape */
+    padding: 10px 30px;
+    /* More padding for better breathing room */
+    border-radius: 45% 55% 70% 30% / 35% 60% 40% 65%;
+    /* Smoother organic blob shape */
     display: inline-flex;
-    width: 380px;
-    /* Fixed constant big width */
-    height: 1.8em;
-    /* Fixed height */
+    width: 500px;
+    /* Wider fixed size to fit longest greetings comfortably */
+    height: 2.2em;
+    /* Slightly taller for better proportions */
     align-items: center;
     /* Center text vertically */
     transition: transform 0.5s ease-in-out;
