@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 const greetings = [
-    'Hello', 'Namaste', 'Hola', 'Bonjour', 'Vanakkam',
-    'Namaskaram', 'Konnichiwa', 'Annyeonghaseyo', 'Ciao',
+    'Hello', 'Namaste', 'Namaskaram', 'Hola', 'Bonjour', 'Vanakkam',
+    'Konnichiwa', 'Annyeonghaseyo', 'Ciao',
     'Ni Hao', 'Privet', 'Assalamu Alaikum', 'Sat Sri Akal',
     'Ola', 'Hallo'
 ];
