@@ -13,7 +13,7 @@ const Hero = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex((prevIndex) => (prevIndex + 1) % greetings.length);
-        }, 3000); // 3 seconds per greeting
+        }, 1800); // 2 seconds per greeting
 
         return () => clearInterval(interval);
     }, []);
