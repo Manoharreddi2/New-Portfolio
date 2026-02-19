@@ -13,7 +13,7 @@ const Hero = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex((prevIndex) => (prevIndex + 1) % greetings.length);
-        }, 2000); // 2 seconds per greeting for better readability with slide
+        }, 3000); // 3 seconds per greeting
 
         return () => clearInterval(interval);
     }, []);
@@ -41,7 +41,7 @@ const Hero = () => {
                                     top: 0,
                                     left: 0,
                                     right: 0,
-                                    transition: 'transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.5s ease', // Bouncy slide
+                                    transition: 'transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 1.2s ease', // Slower transition (1.2s)
                                     zIndex: i === index ? 2 : 1
                                 }}
                             >
