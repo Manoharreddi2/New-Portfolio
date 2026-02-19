@@ -24,8 +24,6 @@ const Hero = () => {
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', width: 'fit-content', margin: '0 auto' }}>
                     {/* Sliding Reveal Container with Paint Effect */}
                     <div className="greeting-paint" style={{ position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
-                        {/* Ghost Element for Dynamic Width Sizing */}
-                        <span style={{ opacity: 0, visibility: 'hidden', whiteSpace: 'nowrap', padding: '0 5px' }}>{greetings[index]}</span>
 
                         {greetings.map((greet, i) => {
                             // Determine state: current, previous, next (or just hidden)

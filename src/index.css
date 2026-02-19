@@ -1251,16 +1251,19 @@ footer p {
         margin-bottom: 10px;
     }
 }
+
 /* Sliding Reveal Animation Classes */
 .slide-active {
     transform: translateY(0);
-    opacity: 1; /* Ensure visible */
+    opacity: 1;
+    /* Ensure visible */
     z-index: 2;
 }
 
 .slide-exit {
     transform: translateY(-100%);
-    opacity: 0; /* Optional: fade out as it goes up */
+    opacity: 0;
+    /* Optional: fade out as it goes up */
     z-index: 1;
 }
 
@@ -1271,14 +1274,26 @@ footer p {
 }
 
 
+
 /* Greeting Paint Background */
 .greeting-paint {
     background-color: #ffffff;
     color: #000000;
-    padding: 0 10px;
-    border-radius: 4px; /* Slightly rounded corners for paint effect */
-    display: inline-block;
-    min-width: 150px; /* Ensure minimum width for different lengths */
+    padding: 10px 20px;
+    border-radius: 55% 25% 45% 35% / 35% 55% 25% 45%;
+    /* Organic blob shape */
+    display: inline-flex;
+    width: 380px;
+    /* Fixed constant big width */
+    height: 1.8em;
+    /* Fixed height */
+    align-items: center;
+    /* Center text vertically */
+    transition: transform 0.5s ease-in-out;
+    /* Only animate transform/shape, not size */
+    transform: rotate(-2deg);
+    /* Organic tilt */
+    white-space: nowrap;
 }
 
 /* Override text gradient for paint box content to ensure solid color */
@@ -1294,4 +1309,3 @@ body.light-mode .greeting-paint {
     background-color: #000000;
     color: #ffffff;
 }
-
