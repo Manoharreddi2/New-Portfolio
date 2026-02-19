@@ -9,11 +9,16 @@ const greetings = [
 
 const Hero = () => {
     const [index, setIndex] = useState(0);
+    const [fade, setFade] = useState(true); // Control fade-in/out
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setIndex((prevIndex) => (prevIndex + 1) % greetings.length);
-        }, 1000);
+            setFade(false); // Start fading out
+            setTimeout(() => {
+                setIndex((prevIndex) => (prevIndex + 1) % greetings.length);
+                setFade(true); // Start fading in next greeting
+            }, 500); // Wait for half the transition time
+        }, 2500); // Total interval
 
         return () => clearInterval(interval);
     }, []);
@@ -21,8 +26,32 @@ const Hero = () => {
     return (
         <header id="home" className="section-animate">
             <h1 className="hero-title">
-                <span className="d-block fade-in-text name-first">{greetings[index]}</span>
-                <span className="d-block name-first">I am <span className="wave-emoji">👋</span></span>
+                {/* 
+                  To achieve "one fades away while other is coming", we need a bit more than just opacity toggle.
+                  But a smooth opacity transition on the same element works well if timed right.
+                  The user said "one should fade away while other is coming".
+                  This strictly requires absolute positioning of two elements.
+                  Let's stick to the single element fade-out-then-in for simplicity first, 
+                  as true overlap requires layout changes that might break flow.
+                  BUT, to honor the request, let's try a cross-fade container.
+                */}
+                <div style={{ position: 'relative', height: '1.2em', width: '100%', display: 'flex', justifyContent: 'center' }}>
+                    {greetings.map((greet, i) => (
+                        <span
+                            key={i}
+                            className={`name-first d-block absolute-greeting ${i === index ? 'fade-in' : 'fade-out'}`}
+                            style={{
+                                position: 'absolute',
+                                top: 0,
+                                opacity: i === index ? 1 : 0,
+                                transition: 'opacity 1s ease-in-out'
+                            }}
+                        >
+                            {greet}
+                        </span>
+                    ))}
+                </div>
+                <span className="d-block name-first" style={{ marginTop: '10px' }}>I am <span className="wave-emoji">👋</span></span>
                 <span className="d-block"><span className="name-first">Purukutapu</span> <span className="name-last">Manohar</span></span>
             </h1>
             <div className="glassy-text">Web Developer | Problem Solver | Tech Enthusiast</div>

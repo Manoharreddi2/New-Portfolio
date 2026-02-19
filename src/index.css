@@ -1210,6 +1210,9 @@ footer p {
     font-size: clamp(40px, 7vw, 52px);
     display: inline-block;
     line-height: 1;
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+    text-fill-color: initial !important;
 }
 
 @keyframes fadeInText {
@@ -1228,6 +1231,7 @@ footer p {
     display: inline-block;
     animation: fadeInText 0.5s ease-out;
 }
+
 .d-block {
     display: block;
     margin-bottom: 5px;
@@ -1247,4 +1251,3 @@ footer p {
         margin-bottom: 10px;
     }
 }
-
