@@ -22,7 +22,7 @@ const Hero = () => {
         <header id="home" className="section-animate">
             <h1 className="hero-title">
                 {/* Sliding Reveal Container */}
-                <div style={{ position: 'relative', height: '1.2em', width: '100%', overflow: 'hidden', display: 'flex', justifyContent: 'center', transform: 'translateX(-50px)' }}>
+                <div style={{ position: 'relative', height: '1.2em', width: '100%', overflow: 'hidden', display: 'flex', justifyContent: 'center' }}>
                     {greetings.map((greet, i) => {
                         // Determine state: current, previous, next (or just hidden)
                         let positionClass = 'slide-hidden';
