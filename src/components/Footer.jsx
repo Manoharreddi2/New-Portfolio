@@ -12,7 +12,7 @@ const Footer = () => {
                 <a href="#contact">Contact</a>
             </div>
             <p>&copy; 2026 Purukutapu Manohar. All rights reserved.</p>
-            <p>Designed & Built with passion</p>
+            <p>Designed & Developed with Love ❤️</p>
         </footer>
     );
 };
